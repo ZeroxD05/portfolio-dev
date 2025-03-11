@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+    />
+    <title>Ata's Portfolio</title>
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --background-color: #f8fafc;
+        --text-color: #1e293b;
+        --light-accent: #dbeafe;
+        --dark-accent: #1e3a8a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      /* Header Styles */
+      header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 2rem 0;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 2;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .header-title {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        animation: fadeInDown 1s ease-out;
+      }
+
+      .header-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      /* Navigation */
+      nav {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .logo {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-color);
+      }
+
+      /* Main Content Styles */
+      main {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+        font-size: larger;
+      }
+
+      section {
+        margin-bottom: 4rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+      }
+
+      /* About Me Section */
+      .about-container {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .about-image {
+        flex: 1;
+        text-align: center;
+      }
+
+      .about-image img {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid var(--light-accent);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .about-text {
+        flex: 2;
+      }
+
+      /* Skills Section */
+      .skills-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .skill-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .skill-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      .skill-progress {
+        height: 8px;
+        background-color: var(--light-accent);
+        border-radius: 4px;
+        overflow: hidden;
+        margin-top: 1rem;
+      }
+
+      .skill-progress-bar {
+        height: 100%;
+        background-color: var(--primary-color);
+        border-radius: 4px;
+        width: 0;
+        transition: width 1.5s ease-out;
+      }
+
+      /* Projects Section */
+      .projects-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .project-card {
+        background-color: white;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s, box-shadow 0.3s;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .project-image {
+        height: 200px;
+        overflow: hidden;
+      }
+
+      .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .project-card:hover .project-image img {
+        transform: scale(1.05);
+      }
+
+      .project-content {
+        padding: 1.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+      }
+
+      .project-description {
+        font-size: 0.9rem;
+        color: #64748b;
+        margin-bottom: 1rem;
+        flex-grow: 1;
+      }
+
+      .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .project-tag {
+        background-color: var(--light-accent);
+        color: var(--primary-color);
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 500;
+      }
+
+      .project-link {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+        text-align: center;
+      }
+
+      .project-link:hover {
+        background-color: var(--secondary-color);
+      }
+
+      /* Roadmap Section */
+      .roadmap-container {
+        margin-top: 3rem;
+        position: relative;
+      }
+
+      .roadmap-line {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        width: 4px;
+        background-color: var(--light-accent);
+        transform: translateX(-50%);
+      }
+
+      .roadmap-item {
+        margin-bottom: 3rem;
+        position: relative;
+        display: flex;
+      }
+
+      .roadmap-item:nth-child(odd) {
+        justify-content: flex-start;
+      }
+
+      .roadmap-item:nth-child(even) {
+        justify-content: flex-end;
+      }
+
+      .roadmap-item:nth-child(odd) .roadmap-content {
+        margin-right: 50%;
+        padding-right: 2rem;
+        text-align: right;
+      }
+
+      .roadmap-item:nth-child(even) .roadmap-content {
+        margin-left: 50%;
+        padding-left: 2rem;
+      }
+
+      .roadmap-dot {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        background-color: var(--primary-color);
+        border-radius: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+      }
+
+      .roadmap-date {
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .roadmap-title {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .roadmap-description {
+        color: #64748b;
+      }
+
+      /* Interactive Elements */
+      .interactive-section {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      /* Theme Switcher */
+      .theme-switcher {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .theme-btn {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: transform 0.3s, border-color 0.3s;
+      }
+
+      .theme-btn:hover {
+        transform: scale(1.1);
+      }
+
+      .theme-btn.active {
+        border-color: var(--primary-color);
+      }
+
+      .theme-blue {
+        background: linear-gradient(135deg, #2563eb, #1e40af);
+      }
+
+      .theme-green {
+        background: linear-gradient(135deg, #10b981, #047857);
+      }
+
+      .theme-purple {
+        background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+      }
+
+      .theme-orange {
+        background: linear-gradient(135deg, #f59e0b, #d97706);
+      }
+
+      /* Interactive Game */
+      .game-container {
+        margin-top: 2rem;
+        position: relative;
+      }
+
+      canvas {
+        background-color: var(--light-accent);
+        border-radius: 8px;
+        display: block;
+        margin: 0 auto;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .game-instructions {
+        text-align: center;
+        margin-top: 1rem;
+        color: #64748b;
+      }
+
+      /* Contact Form */
+      .contact-form {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      .form-input,
+      .form-textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #e2e8f0;
+        border-radius: 4px;
+        font-size: 1rem;
+        transition: border-color 0.3s;
+      }
+
+      .form-input:focus,
+      .form-textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+      }
+
+      .form-textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .form-button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .form-button:hover {
+        background-color: var(--secondary-color);
+      }
+
+      /* Footer */
+      footer {
+        background-color: #1e293b;
+        color: white;
+        padding: 3rem 0;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer-column h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 30px;
+        height: 2px;
+        background-color: var(--primary-color);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+        color: #cbd5e1;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: #334155;
+        border-radius: 50%;
+        color: white;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .social-link:hover {
+        background-color: var(--primary-color);
+      }
+
+      .copyright {
+        margin-top: 3rem;
+        text-align: center;
+        color: #94a3b8;
+        border-top: 1px solid #334155;
+        padding-top: 1.5rem;
+        font-size: 0.9rem;
+      }
+
+      /* Animations */
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .about-container {
+          flex-direction: column;
+        }
+
+        .roadmap-item {
+          flex-direction: column;
+        }
+
+        .roadmap-item:nth-child(odd) .roadmap-content,
+        .roadmap-item:nth-child(even) .roadmap-content {
+          margin: 0;
+          padding: 0;
+          padding-top: 1.5rem;
+          text-align: left;
+        }
+
+        .roadmap-line {
+          left: 10px;
+        }
+
+        .roadmap-dot {
+          left: 10px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .header-title {
+          font-size: 2.5rem;
+        }
+
+        .projects-container {
+          grid-template-columns: 1fr;
+        }
+        .highlight {
+          background-color: yellow;
+          font-weight: bold;
+        }
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: white;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          padding: 1rem 0;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          margin: 0;
+          text-align: center;
+          padding: 0.75rem 0;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header Section -->
+
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo">Ata's Portfolio</div>
+        <button class="mobile-menu-btn">☰</button>
+        <ul class="nav-links">
+          <li><a href="#about">Über mich</a></li>
+          <li><a href="#skills">Fähigkeiten</a></li>
+          <li><a href="#projects">Projekte</a></li>
+          <li><a href="#roadmap">Roadmap</a></li>
+          <li><a href="#interactive">Interaktiv</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <!-- About Section -->
+      <section id="about">
+        <h2 class="section-title">Über mich</h2>
+        <div class="about-container">
+          <div class="about-image">
+            <img src="me.jpeg" alt="Ata" />
+          </div>
+          <div class="about-text">
+            <p>
+              Hey, ich bin <span class="highlight">Ata, 19 Jahre alt</span> und
+              leidenschaftlicher
+              <span class="highlight"
+                >Webentwickler mit Fokus auf benutzerfreundliche und moderne
+                Websites</span
+              >. Während ich mein Abitur mache, sammle ich bereits wertvolle
+              Erfahrungen in der Webentwicklung und arbeite an Projekten, die
+              <i>
+                intuitives Design mit sauberem Code verbinden. Mein Ziel ist es,
+                digitale Lösungen zu schaffen, die nicht nur gut aussehen,
+                sondern auch für jede:n leicht zugänglich sind.</i
+              >
+              🚀
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills">
+        <h2 class="section-title">Meine Fähigkeiten</h2>
+        <div class="skills-container">
+          <div class="skill-card">
+            <h3 class="skill-title">HTML/CSS</h3>
+            <p>
+              Erstellung moderner, responsiver Layouts mit Fokus auf
+              Barrierefreiheit und Best Practices.
+            </p>
+            <div class="skill-progress">
+              <div class="skill-progress-bar" data-value="90"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-title">JavaScript</h3>
+            <p>
+              Entwicklung interaktiver Webanwendungen mit modernen Frameworks
+              und Vanilla JS.
+            </p>
+            <div class="skill-progress">
+              <div class="skill-progress-bar" data-value="85"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-title">UI/UX Design</h3>
+            <p>
+              Gestaltung benutzerfreundlicher Interfaces mit Fokus auf Usability
+              und visueller Ästhetik.
+            </p>
+            <div class="skill-progress">
+              <div class="skill-progress-bar" data-value="80"></div>
+            </div>
+          </div>
+          <div class="skill-card">
+            <h3 class="skill-title">React</h3>
+            <p>
+              Entwicklung moderner Single-Page-Anwendungen mit React und
+              zugehörigen Bibliotheken.
+            </p>
+            <div class="skill-progress">
+              <div class="skill-progress-bar" data-value="75"></div>
+            </div>
+          </div>
+
+          <div class="skill-card">
+            <h3 class="skill-title">Design Tools</h3>
+            <p>
+              Erfahrung mit Figma, Adobe XD und Photoshop für UI/UX-Design und
+              Grafikgestaltung.
+            </p>
+            <div class="skill-progress">
+              <div class="skill-progress-bar" data-value="85"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section id="projects">
+        <h2 class="section-title">Meine Projekte</h2>
+        <div class="projects-container">
+          <div class="project-card">
+            <div class="project-image">
+              <img src="project1.jpeg" alt="E-Commerce Platform" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">E-Commerce Platform</h3>
+              <p class="project-description">
+                Eine vollständige E-Commerce-Lösung mit Produktkatalog,
+                Warenkorb, Zahlungsabwicklung und Benutzerverwaltung.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">React</span>
+                <span class="project-tag">Html</span>
+                <span class="project-tag">Css</span>
+                <span class="project-tag">JavaScript</span>
+              </div>
+              <a href="#" class="project-link">Projekt ansehen</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="project2.jpg" alt="Portfolio Website" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Portfolio Website</h3>
+              <p class="project-description">
+                Eine moderne Portfolio-Website mit interaktiven Elementen,
+                animierten Übergängen und responsivem Design.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">HTML</span>
+                <span class="project-tag">CSS</span>
+                <span class="project-tag">JavaScript</span>
+              </div>
+              <a href="#" class="project-link">Projekt ansehen</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-image">
+              <img src="project3.jpg" alt="Task Management App" />
+            </div>
+            <div class="project-content">
+              <h3 class="project-title">Task Management App</h3>
+              <p class="project-description">
+                Eine Anwendung zur Aufgabenverwaltung mit
+                Drag-and-Drop-Funktionalität, Filterung und Benutzerkonten.
+              </p>
+              <div class="project-tags">
+                <span class="project-tag">React</span>
+                <span class="project-tag">Firebase</span>
+                <span class="project-tag">CSS</span>
+              </div>
+              <a href="#" class="project-link">Projekt ansehen</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Roadmap Section -->
+      <section id="roadmap">
+        <h2 class="section-title">Meine Roadmap</h2>
+        <div class="roadmap-container">
+          <div class="roadmap-line"></div>
+
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-content">
+              <div class="roadmap-date">Januar 2024</div>
+              <h3 class="roadmap-title">Beginn der Webentwicklung</h3>
+              <p class="roadmap-description">
+                Der Start meiner Reise in die Welt der Webentwicklung mit ersten
+                HTML und CSS-Projekten.
+              </p>
+            </div>
+          </div>
+
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-content">
+              <div class="roadmap-date">März 2024</div>
+              <h3 class="roadmap-title">JavaScript-Grundlagen</h3>
+              <p class="roadmap-description">
+                Vertiefung der JavaScript-Kenntnisse und Entwicklung erster
+                interaktiver Webseiten.
+              </p>
+            </div>
+          </div>
+
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-content">
+              <div class="roadmap-date">Juli 2024</div>
+              <h3 class="roadmap-title">React-Entwicklung</h3>
+              <p class="roadmap-description">
+                Einstieg in die React-Welt und Erstellung erster
+                komponentenbasierter Anwendungen.
+              </p>
+            </div>
+          </div>
+
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-content">
+              <div class="roadmap-date">Oktober 2024</div>
+              <h3 class="roadmap-title">Backend mit Node.js</h3>
+              <p class="roadmap-description">
+                Erweiterung meiner Fähigkeiten auf Backend-Entwicklung mit
+                Node.js.
+              </p>
+            </div>
+          </div>
+
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-content">
+              <div class="roadmap-date">Februar 2025</div>
+              <h3 class="roadmap-title">Erstes Vollzeit-Projekt</h3>
+              <p class="roadmap-description">
+                Umsetzung eines vollständigen E-Commerce-Projekts.
+              </p>
+            </div>
+          </div>
+
+          <div class="roadmap-item">
+            <div class="roadmap-dot"></div>
+            <div class="roadmap-content">
+              <div class="roadmap-date">Aktuell</div>
+              <h3 class="roadmap-title">Portfolio-Erweiterung</h3>
+              <p class="roadmap-description">
+                Weiterentwicklung meiner Fähigkeiten und Erweiterung meines
+                Portfolios mit neuen Projekten. Fokus auf Benutzerfreundlichkeit
+                und ästhetisches Design mit Figma und Adobe XD.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Section -->
+      <section id="interactive"></section>
+
+      <section id="contact" class="contact-section">
+        <h2 class="section-title">Kontaktiere mich</h2>
+        <div class="social-buttons">
+          <div class="sosmed">
+            <a href="https://www.instagram.com/codehxb"
+              ><i class="bx bxl-instagram-alt" style="color: red"></i
+            ></a>
+            <a href="mailto:ata2005hh@gmail.com"
+              ><i class="bx bxl-gmail" style="color: blue"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+      <button class="scroll-to-top">
+        <i class="bx bx-up-arrow-alt"></i>
+      </button>
+      <style>
+        .sosmed a {
+          display: inline-block;
+          width: 35px;
+          height: 35px;
+          background: transparent;
+          border-radius: 50%;
+          margin-right: 22px;
+          text-align: center;
+          line-height: 40px;
+          outline: 3px solid rgb(78, 120, 212);
+          transition: 0.3s;
+        }
+
+        .sosmed a:hover {
+          transform: translateY(-5px);
+        }
+
+        .sosmed a i {
+          color: rgb(68, 60, 60);
+          font-size: 20px;
+        }
+        .scroll-to-top {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: var(--primary-color);
+          color: white;
+          border: none;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 24px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+          opacity: 0;
+          visibility: hidden;
+          transition: all 0.3s ease;
+          z-index: 1000;
+        }
+
+        .scroll-to-top.show {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .scroll-to-top:hover {
+          background-color: var(--secondary-color);
+          transform: translateY(-3px);
+        }
+      </style>
+    </main>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        mobileMenuBtn.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+        });
+
+        // Optional: Klick auf Links schließt das Menü wieder
+        const menuLinks = document.querySelectorAll(".nav-links a");
+        menuLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            navLinks.classList.remove("active");
+          });
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        mobileMenuBtn.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+        });
+
+        // Optional: Klick auf Links schließt das Menü wieder
+        const menuLinks = document.querySelectorAll(".nav-links a");
+        menuLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            navLinks.classList.remove("active");
+          });
+        });
+
+        // Erstelle den "Nach oben"-Button
+        const scrollToTopBtn = document.createElement("button");
+        scrollToTopBtn.innerHTML = '<i class="bx bx-up-arrow-alt"></i>';
+        scrollToTopBtn.classList.add("scroll-to-top");
+        document.body.appendChild(scrollToTopBtn);
+
+        // Zeige den Button erst, wenn gescrollt wurde
+        window.addEventListener("scroll", function () {
+          if (window.pageYOffset > 300) {
+            scrollToTopBtn.classList.add("show");
+          } else {
+            scrollToTopBtn.classList.remove("show");
+          }
+        });
+
+        // Scroll nach oben, wenn der Button geklickt wird
+        scrollToTopBtn.addEventListener("click", function () {
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
