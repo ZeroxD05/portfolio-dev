@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGB - Ata's Portfolio</title>
+    <style>
+      :root {
+        --primary-color: #2563eb;
+        --secondary-color: #1e40af;
+        --background-color: #f8fafc;
+        --text-color: #1e293b;
+        --light-accent: #dbeafe;
+        --dark-accent: #1e3a8a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      /* Navigation */
+      nav {
+        background-color: white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+      }
+
+      .logo {
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: var(--primary-color);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+      }
+
+      .nav-links li {
+        margin-left: 2rem;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text-color);
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .mobile-menu-btn {
+        display: none;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-color);
+      }
+
+      /* Main Content */
+      main {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background-color: var(--primary-color);
+      }
+
+      .tos-container {
+        background-color: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+
+      .tos-section {
+        margin-bottom: 2rem;
+      }
+
+      .tos-section h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .back-button {
+        display: inline-block;
+        margin-top: 2rem;
+        padding: 0.5rem 1rem;
+        background-color: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: 500;
+        transition: background-color 0.3s;
+      }
+
+      .back-button:hover {
+        background-color: var(--secondary-color);
+      }
+
+      /* Footer */
+      footer {
+        background-color: #1e293b;
+        color: white;
+        padding: 1.5rem 0;
+        text-align: center;
+      }
+
+      .copyright {
+        color: #94a3b8;
+        font-size: 0.9rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: white;
+          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+          padding: 1rem 0;
+        }
+
+        .nav-links.active {
+          display: flex;
+        }
+
+        .nav-links li {
+          margin: 0;
+          text-align: center;
+          padding: 0.75rem 0;
+        }
+
+        .mobile-menu-btn {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo">Ata's Portfolio</div>
+        <button class="mobile-menu-btn">☰</button>
+        <ul class="nav-links">
+          <li><a href="index.html">Startseite</a></li>
+          <li><a href="index.html#about">Über mich</a></li>
+          <li><a href="index.html#skills">Fähigkeiten</a></li>
+          <li><a href="index.html#projects">Projekte</a></li>
+          <li><a href="index.html#contact">Kontakt</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+      <h2 class="section-title">Allgemeine Geschäftsbedingungen</h2>
+      <div class="tos-container">
+        <div class="tos-section">
+          <h3>1. Geltungsbereich</h3>
+          <p>
+            Diese Allgemeinen Geschäftsbedingungen (nachfolgend "AGB") gelten
+            für alle Leistungen und Verträge zwischen Ata Zeran (nachfolgend
+            "Anbieter") und seinen Kunden (nachfolgend "Auftraggeber").
+          </p>
+        </div>
+
+        <div class="tos-section">
+          <h3>2. Vertragsgegenstand</h3>
+          <p>
+            Der Anbieter bietet Dienstleistungen im Bereich der Webentwicklung,
+            Webdesign und verwandten digitalen Bereichen an. Der genaue Umfang
+            der Leistungen wird im jeweiligen Einzelvertrag festgelegt.
+          </p>
+        </div>
+
+        <div class="tos-section">
+          <h3>3. Zustandekommen des Vertrages</h3>
+          <p>
+            Ein Vertrag kommt durch schriftliche Bestätigung eines Angebots
+            durch den Auftraggeber zustande. Als schriftliche Form gelten auch
+            E-Mail und andere elektronische Kommunikationsmittel.
+          </p>
+        </div>
+
+        <div class="tos-section">
+          <h3>4. Vergütung und Zahlungsbedingungen</h3>
+          <p>
+            4.1 Die Vergütung für die Leistungen des Anbieters richtet sich nach
+            den vereinbarten Preisen. Alle Preise verstehen sich in Euro und
+            [MIT/OHNE] gesetzliche Mehrwertsteuer.
+          </p>
+          <p>
+            4.2 Zahlungen sind innerhalb von [ZAHLUNGSFRIST] Tagen nach
+            Rechnungsstellung ohne Abzug fällig.
+          </p>
+          <p>
+            4.3 Bei größeren Projekten behält sich der Anbieter das Recht vor,
+            Vorauszahlungen oder Abschlagszahlungen zu verlangen.
+          </p>
+        </div>
+
+        <div class="tos-section">
+          <h3>5. Mitwirkungspflichten des Auftraggebers</h3>
+          <p>
+            5.1 Der Auftraggeber stellt dem Anbieter alle für die Durchführung
+            des Auftrags erforderlichen Informationen und Materialien
+            rechtzeitig zur Verfügung.
+          </p>
+          <p>
+            5.2 Der Auftraggeber prüft die Vorschläge und Zwischenergebnisse des
+            Anbieters zeitnah und gibt Feedback, um Verzögerungen im
+            Projektablauf zu vermeiden.
+          </p>
+        </div>
+
+        <div class="tos-section">
+          <h3>6. Urheberrechte und Nutzungsrechte</h3>
+          <p>
+            6.1 Alle vom Anbieter erstellten Werke und Arbeitsergebnisse
+            unterliegen dem Urheberrecht.
+          </p>
+          <p>
+            6.2 Der Auftraggeber erhält erst nach vollständiger Bezahlung der
+            vereinbarten Vergütung die vereinbarten Nutzungsrechte an den
+            Arbeitsergebnissen.
+          </p>
+          <p>
+            6.3 Sofern nicht anders vereinbart, erhält der Auftraggeber ein
+            einfaches, nicht-exklusives Nutzungsrecht für den vereinbarten
+            Verwendungszweck.
+          </p>
+        </div>
+
+        <div class="tos-section">
+          <h3>7. Gewährleistung und Haftung</h3>
+          <p>
+            7.1 Der Anbieter gewährleistet, dass die erbrachten Leistungen frei
+            von Mängeln sind, die den Wert oder die Tauglichkeit zu dem
+            gewöhnlichen oder nach dem Vertrag vorausgesetzten Gebrauch aufheben
+            oder mindern.
+          </p>
+          <p>
+            7.2 Der Auftraggeber hat die Arbeitsergebnisse unverzüglich nach
+            Erhalt zu prüfen und etwaige Mängel unverzüglich, spätestens jedoch
+            innerhalb von [FRIST] Tagen nach Lieferung, schriftlich mitzuteilen.
+          </p>
+          <p>
+            7.3 Die Haftung des Anbieters für Schäden ist auf Vorsatz und grobe
+            Fahrlässigkeit beschränkt. Dies gilt nicht für Schäden aus der
+            Verletzung von Leben, Körper oder Gesundheit.
+          </p>
+        </div>
+
+        <div class="tos-section">
+          <h3>8. Vertraulichkeit</h3>
+          <p>
+            8.1 Der Anbieter verpflichtet sich, alle ihm im Rahmen der
+            Zusammenarbeit zur Kenntnis gelangten vertraulichen Informationen
+            des Auftraggebers vertraulich zu behandeln.
+          </p>
+          <p>
+            8.2 Der Anbieter darf den Auftraggeber in seine Referenzliste
+            aufnehmen und auf die Zusammenarbeit hinweisen, sofern der
+            Auftraggeber nicht ausdrücklich widerspricht.
+          </p>
+        </div>
+
+        <div class="tos-section">
+          <h3>9. Kündigung</h3>
+          <p>
+            9.1 Bei Verträgen ohne feste Laufzeit kann jede Partei den Vertrag
+            mit einer Frist von [KÜNDIGUNGSFRIST] zum Monatsende kündigen.
+          </p>
+          <p>
+            9.2 Das Recht zur außerordentlichen Kündigung aus wichtigem Grund
+            bleibt unberührt.
+          </p>
+        </div>
+
+        <div class="tos-section">
+          <h3>10. Schlussbestimmungen</h3>
+          <p>
+            10.1 Es gilt das Recht der Bundesrepublik Deutschland unter
+            Ausschluss des UN-Kaufrechts.
+          </p>
+          <p>
+            10.3 Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder
+            werden, so berührt dies die Wirksamkeit der übrigen Bestimmungen
+            nicht.
+          </p>
+        </div>
+
+        <a href="index.html" class="back-button">Zurück zur Startseite</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="copyright">
+        <p>&copy; 2025 Ata's Portfolio. Alle Rechte vorbehalten.</p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
+        const navLinks = document.querySelector(".nav-links");
+
+        mobileMenuBtn.addEventListener("click", function () {
+          navLinks.classList.toggle("active");
+        });
+
+        // Klick auf Links schließt das Menü wieder
+        const menuLinks = document.querySelectorAll(".nav-links a");
+        menuLinks.forEach((link) => {
+          link.addEventListener("click", function () {
+            navLinks.classList.remove("active");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
